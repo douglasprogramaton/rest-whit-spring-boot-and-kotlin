@@ -1,11 +1,19 @@
 package com.kotlinstping.restwhitspringbootandkotlin.Model
 
-data class Person(
+import jakarta.persistence.*
 
-    var id :Long=0,
-    var firstName: String="",
-    var lastName: String="",
-    var address: String="",
-    var gernde: String="",
+@Entity(name="person")
+data class Person(
+     @Id
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+     var id :Long=0,
+     @Column
+     var firstName: String="",
+     @Column
+     var lastName: String="",
+     @Column
+     var address: String="",
+     @Column
+     var gernde: String=""
 
 )
