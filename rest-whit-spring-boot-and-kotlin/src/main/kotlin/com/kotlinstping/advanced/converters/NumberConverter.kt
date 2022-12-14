@@ -1,4 +1,4 @@
-package com.kotlinstping.restwhitspringbootandkotlin.converters
+package com.kotlinstping.douglas.converters
 
 object NumberConverter {
     fun convertToDouble(strNumber: String?): Double {

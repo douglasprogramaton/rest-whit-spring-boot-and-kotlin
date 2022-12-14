@@ -1,4 +1,4 @@
-package com.kotlinstping.restwhitspringbootandkotlin
+package com.kotlinstping.douglas
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

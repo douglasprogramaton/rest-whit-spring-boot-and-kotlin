@@ -1,6 +1,6 @@
-package com.kotlinstping.restwhitspringbootandkotlin.repository
+package com.kotlinstping.douglas.repository
 
-import com.kotlinstping.restwhitspringbootandkotlin.Model.Person
+import com.kotlinstping.douglas.Model.Person
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 

@@ -1,6 +1,6 @@
-package com.kotlinstping.restwhitspringbootandkotlin.exception.handler
+package com.kotlinstping.douglas.exception.handler
 
-import com.kotlinstping.restwhitspringbootandkotlin.exception.ExceptionResponse
+import com.kotlinstping.douglas.exception.ExceptionResponse
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.ControllerAdvice
@@ -24,7 +24,7 @@ class CustomizedResponseEentityExceptionHandler: ResponseEntityExceptionHandler(
         )
         return ResponseEntity<ExceptionResponse>(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR)
     }
-    @ExceptionHandler(com.kotlinstping.restwhitspringbootandkotlin.exception.ResourceNotFoundException::class)
+    @ExceptionHandler(com.kotlinstping.douglas.exception.ResourceNotFoundException::class)
     fun ResourceNotFoundException(ex: Exception, request: WebRequest): ResponseEntity<ExceptionResponse> {
 
         val exceptionResponse = ExceptionResponse(

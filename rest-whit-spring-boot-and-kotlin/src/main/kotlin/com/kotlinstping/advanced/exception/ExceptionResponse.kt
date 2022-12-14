@@ -1,4 +1,4 @@
-package com.kotlinstping.restwhitspringbootandkotlin.exception
+package com.kotlinstping.douglas.exception
 
 import java.util.*
 

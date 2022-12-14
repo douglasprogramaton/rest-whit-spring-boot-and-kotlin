@@ -1,4 +1,4 @@
-package com.kotlinstping.restwhitspringbootandkotlin.Model
+package com.kotlinstping.douglas.Model
 
 import jakarta.persistence.*
 
