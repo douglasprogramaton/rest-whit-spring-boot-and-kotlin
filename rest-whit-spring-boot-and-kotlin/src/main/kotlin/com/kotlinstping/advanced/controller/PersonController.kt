@@ -1,7 +1,8 @@
-package com.kotlinstping.douglas.controller
+package com.kotlinstping.advanced.controller
 
-import com.kotlinstping.douglas.data.vo.v1.PersonVO
-import com.kotlinstping.douglas.services.PersonService
+import com.kotlinstping.advanced.data.vo.v1.PersonVO
+import com.kotlinstping.advanced.data.vo.v2.PersonVO as PersonVOV2
+import com.kotlinstping.advanced.services.PersonService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.*
 class PersonController {
 
     //val counter: AtomicLong = AtomicLong()
-
     @Autowired
     private lateinit var service: PersonService
     // var service: PersonService = PersonService()
@@ -32,7 +32,12 @@ class PersonController {
         produces = [MediaType.APPLICATION_JSON_VALUE])
     fun create(@RequestBody person: PersonVO): PersonVO {
         return service.create(person)
+    }
 
+    @PostMapping(value = ["/v2"], consumes = [MediaType.APPLICATION_JSON_VALUE],
+        produces = [MediaType.APPLICATION_JSON_VALUE])
+    fun createV2(@RequestBody person: PersonVOV2): PersonVOV2 {
+        return service.createV2(person)
     }
 
     @PutMapping(consumes = [MediaType.APPLICATION_JSON_VALUE],

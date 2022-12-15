@@ -1,4 +1,4 @@
-package com.kotlinstping.douglas.converters
+package com.kotlinstping.advanced.converters
 
 object NumberConverter {
     fun convertToDouble(strNumber: String?): Double {

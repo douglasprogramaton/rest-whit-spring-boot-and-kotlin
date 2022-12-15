@@ -1,4 +1,4 @@
-package com.kotlinstping.douglas
+package com.kotlinstping.advanced
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

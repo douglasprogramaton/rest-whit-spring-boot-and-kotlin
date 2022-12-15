@@ -1,4 +1,4 @@
-package com.kotlinstping.douglas.exception
+package com.kotlinstping.advanced.exception
 
 import java.util.*
 

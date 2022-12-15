@@ -1,10 +1,12 @@
-package com.kotlinstping.douglas.services
+package com.kotlinstping.advanced.services
 
-import com.kotlinstping.douglas.Model.Person
-import com.kotlinstping.douglas.data.vo.v1.PersonVO
-import com.kotlinstping.douglas.exception.ResourceNotFoundException
-import com.kotlinstping.douglas.mapper.DozerMapper
-import com.kotlinstping.douglas.repository.PersonRepository
+import com.kotlinstping.advanced.Model.Person
+import com.kotlinstping.advanced.data.vo.v1.PersonVO
+import com.kotlinstping.advanced.data.vo.v2.PersonVO as PersonVOV2
+import com.kotlinstping.advanced.exception.ResourceNotFoundException
+import com.kotlinstping.advanced.mapper.DozerMapper
+import com.kotlinstping.advanced.mapper.custom.PersonMapper
+import com.kotlinstping.advanced.repository.PersonRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.util.logging.Logger
@@ -15,12 +17,15 @@ class PersonService {
     @Autowired
     private lateinit var repository: PersonRepository
 
+    @Autowired
+    private lateinit var mapper: PersonMapper
+
     private val logger = Logger.getLogger(PersonService::class.java.name)
 
     fun findAll(): List<PersonVO> {
         logger.info("Finding all people!")
         val persons = repository.findAll()
-        return DozerMapper.parseListObjects(persons, PersonVO::class.java)// converte a lista em VO
+        return DozerMapper.parseListObjects(persons, PersonVO::class.java)
     }
 
     fun findById(id: Long): PersonVO {
@@ -32,8 +37,14 @@ class PersonService {
 
     fun create(person: PersonVO) : PersonVO{
         logger.info("Creating one person with name ${person.firstName}!")
-        val entity: Person = DozerMapper.parseObject(person, Person::class.java)
+        var entity: Person = DozerMapper.parseObject(person, Person::class.java)
         return DozerMapper.parseObject(repository.save(entity), PersonVO::class.java)
+    }
+
+    fun createV2(person: PersonVOV2) : PersonVOV2{
+        logger.info("Creating one person with name ${person.firstName}!")
+        var entity: Person = mapper.mapVOToEntity(person)
+        return mapper.mapEntityToVO(repository.save(entity))
     }
 
     fun update(person: PersonVO) : PersonVO{
@@ -54,6 +65,5 @@ class PersonService {
             .orElseThrow { ResourceNotFoundException("No records found for this ID!") }
         repository.delete(entity)
     }
-
 
 }

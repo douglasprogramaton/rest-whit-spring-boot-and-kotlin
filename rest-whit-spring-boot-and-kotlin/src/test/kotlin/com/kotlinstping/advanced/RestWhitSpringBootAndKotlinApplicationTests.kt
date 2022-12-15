@@ -1,4 +1,4 @@
-package com.kotlinstping.douglas
+package com.kotlinstping.advanced
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

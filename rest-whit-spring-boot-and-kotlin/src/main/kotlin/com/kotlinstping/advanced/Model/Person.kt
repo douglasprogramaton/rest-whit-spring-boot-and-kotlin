@@ -1,4 +1,4 @@
-package com.kotlinstping.douglas.Model
+package com.kotlinstping.advanced.Model
 
 import jakarta.persistence.*
 

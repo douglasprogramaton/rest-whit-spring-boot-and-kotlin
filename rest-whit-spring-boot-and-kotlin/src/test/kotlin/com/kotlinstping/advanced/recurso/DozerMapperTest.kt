@@ -1,9 +1,9 @@
-package com.kotlinstping.douglas.recurso
+package com.kotlinstping.advanced.recurso
 
 
-import com.kotlinstping.douglas.Model.Person
-import com.kotlinstping.douglas.data.vo.v1.PersonVO
-import com.kotlinstping.douglas.mapper.DozerMapper
+import com.kotlinstping.advanced.Model.Person
+import com.kotlinstping.advanced.data.vo.v1.PersonVO
+import com.kotlinstping.advanced.mapper.DozerMapper
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
