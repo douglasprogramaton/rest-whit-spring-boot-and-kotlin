@@ -1,6 +1,6 @@
 package com.kotlinstping.advanced.mapper.custom
 
-import com.kotlinstping.advanced.Model.Person
+import com.kotlinstping.advanced.model.Person
 import com.kotlinstping.advanced.data.vo.v2.PersonVO
 import org.springframework.stereotype.Service
 import java.util.*

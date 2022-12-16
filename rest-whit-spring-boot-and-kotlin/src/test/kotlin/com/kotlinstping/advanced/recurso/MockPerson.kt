@@ -1,6 +1,6 @@
 package com.kotlinstping.advanced.recurso
 
-import com.kotlinstping.advanced.Model.Person
+import com.kotlinstping.advanced.model.Person
 import java.util.ArrayList
 import com.kotlinstping.advanced.data.vo.v1.PersonVO
 

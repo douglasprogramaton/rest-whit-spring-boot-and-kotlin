@@ -1,7 +1,7 @@
 package com.kotlinstping.advanced.recurso
 
 
-import com.kotlinstping.advanced.Model.Person
+import com.kotlinstping.advanced.model.Person
 import com.kotlinstping.advanced.data.vo.v1.PersonVO
 import com.kotlinstping.advanced.mapper.DozerMapper
 import org.junit.jupiter.api.Assertions.assertEquals

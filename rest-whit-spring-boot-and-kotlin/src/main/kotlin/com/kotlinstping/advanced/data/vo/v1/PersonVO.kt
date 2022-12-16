@@ -1,16 +1,24 @@
 package com.kotlinstping.advanced.data.vo.v1
 
+import com.fasterxml.jackson.annotation.JsonIgnore
+import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.annotation.JsonPropertyOrder
 
-data class PersonVO(
 
-     var id :Long=0,
+@JsonPropertyOrder("id", "address", "first_name", "last_name", "gender")
+data class PersonVO (
 
-     var firstName: String="",
+     var id: Long = 0,
 
-     var lastName: String="",
+     @field:JsonProperty("first_name")
+     var firstName: String = "",
 
-     var address: String="",
+     @field:JsonProperty("last_name")
+     var lastName: String = "",
 
-     var gernde: String=""
+     var address: String = "",
+
+     //@field:JsonIgnore
+     var gernde: String = ""
 
 )

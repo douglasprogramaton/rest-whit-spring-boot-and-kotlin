@@ -1,6 +1,6 @@
 package com.kotlinstping.advanced.services
 
-import com.kotlinstping.advanced.Model.Person
+import com.kotlinstping.advanced.model.Person
 import com.kotlinstping.advanced.data.vo.v1.PersonVO
 import com.kotlinstping.advanced.data.vo.v2.PersonVO as PersonVOV2
 import com.kotlinstping.advanced.exception.ResourceNotFoundException

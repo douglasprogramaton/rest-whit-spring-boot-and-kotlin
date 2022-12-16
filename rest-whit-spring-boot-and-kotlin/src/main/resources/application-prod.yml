@@ -1,7 +1,7 @@
 spring:
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/mercadolivroprod?createDataBaseIfNotExist=true
+    url: jdbc:postgresql://localhost:5432/rest_with_spring_boot?createDataBaseIfNotExist=true
     username: postgres
     password: Douglas12957534@
     jackson:
