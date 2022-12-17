@@ -3,6 +3,7 @@ package com.kotlinstping.advanced.services
 import com.kotlinstping.advanced.controller.PersonController
 import com.kotlinstping.advanced.model.Person
 import com.kotlinstping.advanced.data.vo.v1.PersonVO
+import com.kotlinstping.advanced.exception.RequiredObjectIsNullException
 import com.kotlinstping.advanced.data.vo.v2.PersonVO as PersonVOV2
 import com.kotlinstping.advanced.exception.ResourceNotFoundException
 import com.kotlinstping.advanced.mapper.DozerMapper
@@ -46,7 +47,8 @@ class PersonService {
         return personVO
     }
 
-    fun create(person: PersonVO) : PersonVO{
+    fun create(person: PersonVO?) : PersonVO{
+        if (person==null)throw RequiredObjectIsNullException()
         logger.info("Creating one person with name ${person.firstName}!")
         var entity: Person = DozerMapper.parseObject(person, Person::class.java)
         val personVO:PersonVO=DozerMapper.parseObject(repository.save(entity), PersonVO::class.java)
@@ -56,7 +58,8 @@ class PersonService {
 
     }
 
-    fun update(person: PersonVO) : PersonVO{
+    fun update(person: PersonVO?) : PersonVO{
+        if (person==null)throw RequiredObjectIsNullException()
         logger.info("Updating one person with ID ${person.key}!")
         val entity = repository.findById(person.key)
             .orElseThrow { ResourceNotFoundException("No records found for this ID!") }
