@@ -6,9 +6,10 @@ import com.github.dozermapper.core.Mapping
 import org.springframework.hateoas.RepresentationModel
 
 
-@JsonPropertyOrder("id", "address", "first_name", "last_name", "gender")
+@JsonPropertyOrder("id", "first_name", "last_name", "address", "gender")
 data class PersonVO (
     @Mapping("id")
+    @field:JsonProperty("id")
      var key: Long = 0,
 
      @field:JsonProperty("first_name")
