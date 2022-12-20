@@ -1,9 +1,8 @@
 package com.kotlinstping.advanced.controller
 
 
-
-import com.kotlinstping.advanced.data.vo.v1.PersonVO
-import com.kotlinstping.advanced.services.PersonService
+import com.kotlinstping.advanced.data.vo.v1.BookVO
+import com.kotlinstping.advanced.services.BookService
 import com.kotlinstping.advanced.util.MediaType
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.ArraySchema
@@ -16,23 +15,22 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/api/person/v1")
-@Tag(name = "People", description = "Endpoints for Managing People")
-class PersonController {
+@RequestMapping("/api/book/v1")
+@Tag(name = "Books", description = "Endpoints for Managing Books")
+class BookController {
 
     @Autowired
-    private lateinit var service: PersonService
-    // var service: PersonService = PersonService()
+    private lateinit var service: BookService
 
     @GetMapping(produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML])
-    @Operation(summary = "Finds all People", description = "Finds all People",
-        tags = ["People"],
+    @Operation(summary = "Finds all Books", description = "Finds all Books",
+        tags = ["Books"],
         responses = [
             ApiResponse(
                 description = "Success",
                 responseCode = "200",
                 content = [
-                    Content(array = ArraySchema(schema = Schema(implementation = PersonVO::class)))
+                    Content(array = ArraySchema(schema = Schema(implementation = BookVO::class)))
                 ]
             ),
             ApiResponse(description = "No Content", responseCode = "204", content = [
@@ -52,20 +50,20 @@ class PersonController {
             ]),
         ]
     )
-    fun findAll(): List<PersonVO> {
+    fun findAll(): List<BookVO> {
         return service.findAll()
     }
 
     @GetMapping(value = ["/{id}"],
-        produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML])
-    @Operation(summary = "Finds a Person", description = "Finds a Person",
-        tags = ["People"],
+                    produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML])
+    @Operation(summary = "Finds a Book", description = "Finds a Book",
+        tags = ["Books"],
         responses = [
             ApiResponse(
                 description = "Success",
                 responseCode = "200",
                 content = [
-                    Content(schema = Schema(implementation = PersonVO::class))
+                    Content(schema = Schema(implementation = BookVO::class))
                 ]
             ),
             ApiResponse(description = "No Content", responseCode = "204", content = [
@@ -85,20 +83,20 @@ class PersonController {
             ]),
         ]
     )
-    fun findById(@PathVariable(value="id") id: Long): PersonVO {
+    fun findById(@PathVariable(value="id") id: Long): BookVO {
         return service.findById(id)
     }
 
     @PostMapping(consumes = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML],
-        produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML])
-    @Operation(summary = "Adds a new Person", description = "Adds a new Person",
-        tags = ["People"],
+                produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML])
+    @Operation(summary = "Adds a new Book", description = "Adds a new Book",
+        tags = ["Books"],
         responses = [
             ApiResponse(
                 description = "Success",
                 responseCode = "200",
                 content = [
-                    Content(schema = Schema(implementation = PersonVO::class))
+                    Content(schema = Schema(implementation = BookVO::class))
                 ]
             ),
             ApiResponse(description = "Bad Request", responseCode = "400", content = [
@@ -112,21 +110,21 @@ class PersonController {
             ]),
         ]
     )
-    fun create(@RequestBody person: PersonVO): PersonVO {
-        return service.create(person)
+    fun create(@RequestBody book: BookVO): BookVO {
+        return service.create(book)
 
     }
 
     @PutMapping(consumes = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML],
-        produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML])
-    @Operation(summary = "Updates a person's information", description = "Updates a person's information",
-        tags = ["People"],
+                    produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML])
+    @Operation(summary = "Updates a book's information", description = "Updates a book's information",
+        tags = ["Books"],
         responses = [
             ApiResponse(
                 description = "Success",
                 responseCode = "200",
                 content = [
-                    Content(schema = Schema(implementation = PersonVO::class))
+                    Content(schema = Schema(implementation = BookVO::class))
                 ]
             ),
             ApiResponse(description = "No Content", responseCode = "204", content = [
@@ -146,14 +144,14 @@ class PersonController {
             ]),
         ]
     )
-    fun update(@RequestBody person: PersonVO): PersonVO {
-        return service.update(person)
+    fun update(@RequestBody book: BookVO): BookVO {
+        return service.update(book)
     }
 
     @DeleteMapping(value = ["/{id}"],
         produces = [MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.APPLICATION_YML])
-    @Operation(summary = "Deletes a person", description = "Deletes a person",
-        tags = ["People"],
+    @Operation(summary = "Deletes a book", description = "Deletes a book",
+        tags = ["Books"],
         responses = [
             ApiResponse(description = "No Content", responseCode = "204", content = [
                 Content(schema = Schema(implementation = Unit::class))
@@ -175,4 +173,5 @@ class PersonController {
     fun delete(@PathVariable(value="id") id: Long) : ResponseEntity<*>{
         service.delete(id)
         return ResponseEntity.noContent().build<Any>()
-    }}
+    }
+}

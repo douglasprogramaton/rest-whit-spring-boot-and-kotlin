@@ -9,3 +9,8 @@ spring:
 jwt:
   secret: d1f41581-3496-479d-b952-3abe10789cbf
   expiration: 999999
+  spring-doc :
+    paths-to-match:
+      - /api/**/v1/**
+    swagger-ui:
+      user-root-path: true

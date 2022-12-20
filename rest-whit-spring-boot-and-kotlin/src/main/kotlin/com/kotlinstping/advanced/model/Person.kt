@@ -1,6 +1,7 @@
 package com.kotlinstping.advanced.model
 
 import jakarta.persistence.*
+import org.hibernate.Hibernate
 
 @Entity(name="person")
 data class Person(
@@ -16,4 +17,14 @@ data class Person(
      @Column
      var gernde: String=""
 
-)
+) {
+     override fun equals(other: Any?): Boolean {
+          if (this === other) return true
+          if (other == null || Hibernate.getClass(this) != Hibernate.getClass(other)) return false
+          other as Person
+
+          return id != null && id == other.id
+     }
+
+     override fun hashCode(): Int = javaClass.hashCode()
+}
