@@ -1,7 +1,6 @@
 package com.kotlinstping.advanced.mockito.services
 
 import com.kotlinstping.advanced.exception.RequiredObjectIsNullException
-import com.kotlinstping.advanced.recurso.MockPerson
 import com.kotlinstping.advanced.repository.PersonRepository
 import com.kotlinstping.advanced.services.PersonService
 import org.junit.jupiter.api.Assertions
@@ -17,7 +16,6 @@ import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
 import org.mockito.junit.jupiter.MockitoExtension
-import org.springframework.stereotype.Repository
 import java.util.*
 
 @ExtendWith(MockitoExtension::class)

@@ -1,9 +1,9 @@
-package com.kotlinstping.advanced.recurso
+package com.kotlinstping.advanced.mockito.services
 
 
-import com.kotlinstping.advanced.model.Person
 import com.kotlinstping.advanced.data.vo.v1.PersonVO
 import com.kotlinstping.advanced.mapper.DozerMapper
+import com.kotlinstping.advanced.model.Person
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
