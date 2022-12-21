@@ -1,0 +1,11 @@
+spring:
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rest_with_spring_boot?createDataBaseIfNotExist=true
+    username: postgres
+    password: Douglas12957534@
+    jackson:
+      default-property-inclusion: non_null
+jwt:
+  secret: d1f41581-3496-479d-b952-3abe10789cbf
+  expiration: 999999
