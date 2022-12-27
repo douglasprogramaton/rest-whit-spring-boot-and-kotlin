@@ -16,25 +16,25 @@ open class AbstractIntegrationTest {
             startContainers()
 
             val environment = applicationContext.environment
-            val testcontainers = MapPropertySource(
-                "testcontainers", createConnectionConfiguration()
+            val testContainers = MapPropertySource(
+                "testContainers", createConnectionConfiguration()
             )
-            environment.propertySources.addFirst(testcontainers)
+            environment.propertySources.addFirst(testContainers)
         }
 
         companion object {
 
-            private var postegres: PostgreSQLContainer<*> = PostgreSQLContainer("postgresql:14.5")
+            private var postegresql: PostgreSQLContainer<*> = PostgreSQLContainer("postgresql:14.5")
 
             private fun startContainers() {
-                Startables.deepStart(Stream.of(postegres)).join()
+                Startables.deepStart(Stream.of(postegresql)).join()
             }
 
             private fun createConnectionConfiguration(): MutableMap<String, Any> {
                 return java.util.Map.of(
-                    "spring.datasource.url", postegres.jdbcUrl,
-                    "spring.datasource.username", postegres.username,
-                    "spring.datasource.password", postegres.password,
+                    "spring.datasource.url", postegresql.jdbcUrl,
+                    "spring.datasource.username", postegresql.username,
+                    "spring.datasource.password", postegresql.password,
                 )
             }
         }

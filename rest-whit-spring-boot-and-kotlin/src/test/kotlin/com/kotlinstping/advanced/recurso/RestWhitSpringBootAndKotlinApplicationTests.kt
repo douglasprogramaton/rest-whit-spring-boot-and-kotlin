@@ -1,4 +1,4 @@
-package com.kotlinstping.advanced.mockito.services
+package com.kotlinstping.advanced.recurso
 
 
 import org.junit.jupiter.api.Test

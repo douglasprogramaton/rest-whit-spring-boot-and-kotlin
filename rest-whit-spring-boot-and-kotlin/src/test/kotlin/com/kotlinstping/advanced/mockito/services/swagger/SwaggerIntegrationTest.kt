@@ -1,4 +1,4 @@
-package com.kotlinstping.advanced.mockito.services
+package com.kotlinstping.advanced.mockito.services.swagger
 
 import com.kotlinstping.ConfigsTest
 import com.kotlinstping.integrationtests.testcontainer.AbstractIntegrationTest

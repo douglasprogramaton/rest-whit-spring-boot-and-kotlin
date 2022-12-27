@@ -1,4 +1,4 @@
-package com.kotlinstping.advanced.mockito.services
+package com.kotlinstping.advanced.recurso
 
 import com.kotlinstping.advanced.model.Person
 import java.util.ArrayList
