@@ -1,6 +1,7 @@
 package com.kotlinstping.advanced.exception.handler
 
 import com.kotlinstping.advanced.exception.ExceptionResponse
+import com.kotlinstping.advanced.exception.InvalidJwtAuthenticationException
 import com.kotlinstping.advanced.exception.RequiredObjectIsNullException
 import com.kotlinstping.advanced.exception.ResourceNotFoundException
 import org.springframework.http.HttpStatus
@@ -47,5 +48,14 @@ class CustomizedResponseEntityExceptionHandler: ResponseEntityExceptionHandler()
             request.getDescription(false)
         )
         return ResponseEntity<ExceptionResponse>(exceptionResponse, HttpStatus.BAD_REQUEST)
+    }    @ExceptionHandler(InvalidJwtAuthenticationException::class)
+    fun handleInvalidJwtAuthenticationException(ex: Exception, request: WebRequest) :
+            ResponseEntity<ExceptionResponse> {
+        val exceptionResponse = ExceptionResponse(
+            Date(),
+            ex.message,
+            request.getDescription(false)
+        )
+        return ResponseEntity<ExceptionResponse>(exceptionResponse, HttpStatus.FORBIDDEN)
     }
 }

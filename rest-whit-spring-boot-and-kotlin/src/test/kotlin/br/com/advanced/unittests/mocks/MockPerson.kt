@@ -1,8 +1,7 @@
-package com.kotlinstping.advanced.recurso
+package br.com.advanced.unittests.mocks
 
-import com.kotlinstping.advanced.model.Person
-import java.util.ArrayList
 import com.kotlinstping.advanced.data.vo.v1.PersonVO
+import com.kotlinstping.advanced.model.Person
 
 class MockPerson {
     fun mockEntity(): Person {

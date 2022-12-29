@@ -1,9 +1,10 @@
-package com.kotlinstping.advanced.recurso
+package br.com.advanced.unittests.mockito.services
 
+
+import br.com.advanced.unittests.mocks.MockPerson
 import com.kotlinstping.advanced.exception.RequiredObjectIsNullException
 import com.kotlinstping.advanced.repository.PersonRepository
 import com.kotlinstping.advanced.services.PersonService
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -12,18 +13,19 @@ import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
+import org.mockito.junit.jupiter.MockitoExtension
 import java.util.*
 
-@ExtendWith()
+@ExtendWith(MockitoExtension::class)
 internal class PersonServiceTest {
 
-
     private lateinit var inputObject: MockPerson
-    @InjectMocks // pega os mocks de person e injeta no service
+
+    @InjectMocks
     private lateinit var service: PersonService
+
     @Mock
     private lateinit var repository: PersonRepository
-
 
     @BeforeEach
     fun setUpMock() {
@@ -117,9 +119,9 @@ internal class PersonServiceTest {
 
     @Test
     fun createWithNullPerson() {
-        val exception: Exception = Assertions.assertThrows(
+        val exception: Exception = assertThrows(
             RequiredObjectIsNullException::class.java
-        ) { service.create(null) }
+        ) {service.create(null)}
 
         val expectedMessage = "It is not allowed to persist a null object!"
         val actualMessage = exception.message
@@ -151,9 +153,9 @@ internal class PersonServiceTest {
 
     @Test
     fun updateWithNullPerson() {
-        val exception: Exception = Assertions.assertThrows(
+        val exception: Exception = assertThrows(
             RequiredObjectIsNullException::class.java
-        ) { service.update(null) }
+        ) {service.update(null)}
 
         val expectedMessage = "It is not allowed to persist a null object!"
         val actualMessage = exception.message

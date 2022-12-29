@@ -1,13 +1,12 @@
-package com.kotlinstping.advanced.recurso
+package br.com.advanced.unittests.mapper
 
-
+import br.com.advanced.unittests.mocks.MockPerson
 import com.kotlinstping.advanced.data.vo.v1.PersonVO
 import com.kotlinstping.advanced.mapper.DozerMapper
 import com.kotlinstping.advanced.model.Person
-import junit.framework.TestCase.assertEquals
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
-
+import org.junit.jupiter.api.Test
 
 class DozerMapperTest {
 
@@ -36,23 +35,23 @@ class DozerMapperTest {
         val outputZero: PersonVO = outputList[0]
 
         assertEquals(0, outputZero.key)
-        assertEquals("First Name Test3", outputZero.firstName)
-        assertEquals("Last Name Test3", outputZero.lastName)
-        assertEquals("Address Test3", outputZero.address)
+        assertEquals("First Name Test0", outputZero.firstName)
+        assertEquals("Last Name Test0", outputZero.lastName)
+        assertEquals("Address Test0", outputZero.address)
         assertEquals("Male", outputZero.gernde)
 
         val outputSeven: PersonVO = outputList[7]
         assertEquals(7.toLong(), outputSeven.key)
-        assertEquals("First Name Test4", outputSeven.firstName)
-        assertEquals("Last Name Test4", outputSeven.lastName)
-        assertEquals("Address Test4", outputSeven.address)
-        assertEquals("Female", outputSeven.gernde )
+        assertEquals("First Name Test7", outputSeven.firstName)
+        assertEquals("Last Name Test7", outputSeven.lastName)
+        assertEquals("Address Test7", outputSeven.address)
+        assertEquals("Female", outputSeven.gernde)
 
         val outputTwelve: PersonVO = outputList[12]
         assertEquals(12.toLong(), outputTwelve.key)
-        assertEquals("First Name Test4", outputTwelve.firstName)
-        assertEquals("Last Name Test4", outputTwelve.lastName)
-        assertEquals("Address Test4", outputTwelve.address)
+        assertEquals("First Name Test12", outputTwelve.firstName)
+        assertEquals("Last Name Test12", outputTwelve.lastName)
+        assertEquals("Address Test12", outputTwelve.address)
         assertEquals("Male", outputTwelve.gernde)
     }
 
@@ -82,16 +81,16 @@ class DozerMapperTest {
 
         val outputSeven: Person = outputList[7]
         assertEquals(7, outputSeven.id)
-        assertEquals("First Name Test1", outputSeven.firstName)
-        assertEquals("Last Name Test1", outputSeven.lastName)
-        assertEquals("Address Test1", outputSeven.address)
+        assertEquals("First Name Test7", outputSeven.firstName)
+        assertEquals("Last Name Test7", outputSeven.lastName)
+        assertEquals("Address Test7", outputSeven.address)
         assertEquals("Female", outputSeven.gernde)
 
         val outputTwelve: Person = outputList[12]
         assertEquals(12, outputTwelve.id)
-        assertEquals("First Name Test2", outputTwelve.firstName)
-        assertEquals("Last Name Test2", outputTwelve.lastName)
-        assertEquals("Address Test2", outputTwelve.address)
+        assertEquals("First Name Test12", outputTwelve.firstName)
+        assertEquals("Last Name Test12", outputTwelve.lastName)
+        assertEquals("Address Test12", outputTwelve.address)
         assertEquals("Male", outputTwelve.gernde)
     }
 }

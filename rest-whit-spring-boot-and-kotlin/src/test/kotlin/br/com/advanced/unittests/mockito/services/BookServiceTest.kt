@@ -1,5 +1,6 @@
-package com.kotlinstping.advanced.recurso
+package br.com.advanced.unittests.mockito.services
 
+import br.com.advanced.unittests.mocks.MockBook
 import com.kotlinstping.advanced.exception.RequiredObjectIsNullException
 import com.kotlinstping.advanced.repository.BookRepository
 import com.kotlinstping.advanced.services.BookService
@@ -11,10 +12,10 @@ import org.mockito.InjectMocks
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
 import org.mockito.MockitoAnnotations
-
+import org.mockito.junit.jupiter.MockitoExtension
 import java.util.*
 
-@ExtendWith()
+@ExtendWith(MockitoExtension::class)
 internal class BookServiceTest {
 
     private lateinit var inputObject: MockBook

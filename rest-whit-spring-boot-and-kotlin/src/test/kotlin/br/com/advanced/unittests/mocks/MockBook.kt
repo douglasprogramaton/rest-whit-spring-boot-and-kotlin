@@ -1,8 +1,7 @@
-package com.kotlinstping.advanced.recurso
+package br.com.advanced.unittests.mocks
 
 import com.kotlinstping.advanced.data.vo.v1.BookVO
 import com.kotlinstping.advanced.model.Book
-
 
 class MockBook {
 

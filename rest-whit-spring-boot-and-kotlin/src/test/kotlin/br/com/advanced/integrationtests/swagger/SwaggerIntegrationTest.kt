@@ -1,7 +1,7 @@
-package com.kotlinstping.advanced.mockito.services.swagger
+package br.com.advanced.integrationtests.swagger
 
-import com.kotlinstping.ConfigsTest
-import com.kotlinstping.integrationtests.testcontainer.AbstractIntegrationTest
+import br.com.advanced.integrationtests.TestConfigs
+import br.com.advanced.integrationtests.testcontainers.AbstractIntegrationTest
 import io.restassured.RestAssured.given
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
@@ -14,7 +14,7 @@ class SwaggerIntegrationTest() : AbstractIntegrationTest() {
 	fun shouldDisplaySwaggerUiPage() {
 		val content = given()
 			.basePath("/swagger-ui/index.html")
-			.port(ConfigsTest.SERVER_PORT)
+			.port(TestConfigs.SERVER_PORT)
 				.`when`()
 			.get()
 			.then()
